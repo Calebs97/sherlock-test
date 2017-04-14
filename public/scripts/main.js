@@ -3,6 +3,22 @@
 function isJQueryAvailable() {
     return "undefined" != typeof jQuery
 }
+var Kairos_APP_ID;
+var Kairos_SECRET;
+$.ajax({
+    url:"/Kairos_APP_ID",
+    dataType: 'String',
+    success:function(data){
+        Kairos_APP_ID = data;
+    }
+});
+$.ajax({
+    url:"/Kairos_SECRET",
+    dataType: 'String',
+    success:function(data){
+        Kairos_SECRET = data;
+    }
+});
 var Kairos = function(e, t) {
     this.app_id = e, this.app_key = t, this.api_host = "https://api.kairos.com/"
 };
@@ -205,7 +221,7 @@ Kairos.prototype.authenticationProvided = function() {
         a = !1,
         i = 0,
         r = 0,
-        s = new Kairos(process.env.Kairos_APP_ID, process.env.Kairos_SECRET);
+        s = new Kairos(Kairos_APP_ID, Kairos_SECRET);
     navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia, navigator.getMedia({
         video: !0,
         audio: !1
