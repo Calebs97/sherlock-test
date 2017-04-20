@@ -1,14 +1,14 @@
 var express = require('express');
-var keys = require('./keys.js');
 var app = express();
 var Kairos_APP_ID = process.env.Kairos_APP_ID;
 var Kairos_SECRET = process.env.Kairos_SECRET;
+console.log(Kairos_APP_ID);
 
 app.get('/Kairos_APP_ID', function (req, res) {
-  res.send(Kairos_APP_ID)
+  response.send(Kairos_APP_ID);
 })
 app.get('/Kairos_SECRET', function (req, res) {
-  res.send(Kairos_SECRET)
+  response.send(Kairos_SECRET);
 })
 
 app.set('port', (process.env.PORT || 5000));
