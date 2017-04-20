@@ -6,19 +6,24 @@ function isJQueryAvailable() {
 var Kairos_APP_ID;
 var Kairos_SECRET;
 $.ajax({
+    type:"GET",
     url:"/Kairos_APP_ID",
-    dataType: 'String',
+    async: false,
+    contentType: "application/json; charset=utf-8",
     success:function(data){
         Kairos_APP_ID = data;
     }
 });
 $.ajax({
+    type:"GET",
     url:"/Kairos_SECRET",
-    dataType: 'String',
+    async: false,
+    contentType: "application/json; charset=utf-8",
     success:function(data){
         Kairos_SECRET = data;
     }
 });
+
 var Kairos = function(e, t) {
     this.app_id = e, this.app_key = t, this.api_host = "https://api.kairos.com/"
 };
