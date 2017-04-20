@@ -3,6 +3,7 @@ var app = express();
 var Kairos_APP_ID = process.env.Kairos_APP_ID;
 var Kairos_SECRET = process.env.Kairos_SECRET;
 console.log(Kairos_APP_ID);
+console.log("hiii");
 
 app.get('/Kairos_APP_ID', function (req, res) {
   response.send(Kairos_APP_ID);
